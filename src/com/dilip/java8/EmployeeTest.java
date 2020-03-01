@@ -1,6 +1,6 @@
 package com.dilip.java8;
 
-class EmployeeTest {
+class EmployeeTest implements Comparable<EmployeeTest> {
 
 	private Integer id = -1;
 	private String firstName = null;
@@ -10,7 +10,7 @@ class EmployeeTest {
 		this.id = id;
 		this.firstName = fName;
 		this.lastName = lName;
-	
+
 	}
 
 	public Integer getId() {
@@ -42,6 +42,11 @@ class EmployeeTest {
 		return "EmployeeTest [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
-	
+	@Override
+	public int compareTo(EmployeeTest o) {
+		// TODO Auto-generated method stub
+		return -(this.id - o.id);
+	}
+
 	// getters and setters
 }
