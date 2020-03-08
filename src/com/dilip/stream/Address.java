@@ -1,3 +1,4 @@
+package com.dilip.stream;
 public class Address {
 	private String pin;
 	private String street;

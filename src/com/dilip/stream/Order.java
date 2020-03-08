@@ -1,23 +1,43 @@
 package com.dilip.stream;
 
 public class Order {
-	int id;
-	int price;
-	String catagory;
+	private int orderId;
+	private String orderName;
+	private int price;
+	private String orderCat;
+	Address address;
 
-	public Order(int id, int price, String catagory) {
+	public Order(int orderId, String orderName, int price, String orderCat, Address address) {
 		super();
-		this.id = id;
+		this.orderId = orderId;
+		this.orderName = orderName;
 		this.price = price;
-		this.catagory = catagory;
+		this.orderCat = orderCat;
+		this.address = address;
 	}
 
-	public int getId() {
-		return id;
+	public Order(int orderId, String orderName, int price, String orderCat) {
+		super();
+		this.orderId = orderId;
+		this.orderName = orderName;
+		this.price = price;
+		this.orderCat = orderCat;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getOrderName() {
+		return orderName;
+	}
+
+	public void setOrderName(String orderName) {
+		this.orderName = orderName;
 	}
 
 	public int getPrice() {
@@ -28,12 +48,25 @@ public class Order {
 		this.price = price;
 	}
 
-	public String getCatagory() {
-		return catagory;
+	public String getOrderCat() {
+		return orderCat;
 	}
 
-	public void setCatagory(String catagory) {
-		this.catagory = catagory;
+	public void setOrderCat(String orderCat) {
+		this.orderCat = orderCat;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", orderName=" + orderName + ", price=" + price + ", orderCat=" + orderCat
+				+ "]";
+	}
 }
