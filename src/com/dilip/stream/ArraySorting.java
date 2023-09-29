@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
 
 public class ArraySorting {
 	public static void main(String[] args) {
@@ -41,51 +36,5 @@ public class ArraySorting {
 		orderList.add(order7);
 		orderList.add(order8);
 		orderList.add(order9);
-
-		// orderList.stream().filter(order ->
-		// order.getCatagory()).collect(Collectors.toList());
-
-		List<String> collect = orderList.stream().map(new testFun()).distinct().collect(Collectors.toList());
-
-		Map<String, Integer> collect2 = orderList.stream().collect(Collectors.groupingBy(Order::getCatagory, Collectors.summingInt(Order::getPrice)));
-		System.out.println(collect2);
-
-		/*
-		 * List<String> cataList = orderList.stream().map(mapper ->
-		 * mapper.getCatagory()).distinct()
-		 * .collect(Collectors.groupingBy(order::getCatagory,
-		 * Collectors.summingInt(order::getPrice)));
-		 */
-		System.out.println(collect);
-		System.out.println(collect);
 	}
-
-}
-
-class test implements Predicate<Order> {
-	@Override
-	public boolean test(Order t) {
-		return false;
-	}
-
-}
-
-class testFun implements Function<Order, String> {
-
-	@Override
-	public String apply(Order o) {
-
-		return o.getCatagory();
-	}
-
-}
-
-class toInt implements ToIntFunction<Order> {
-
-	@Override
-	public int applyAsInt(Order value) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

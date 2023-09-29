@@ -23,7 +23,12 @@ public class Order {
 		this.price = price;
 		this.orderCat = orderCat;
 	}
-
+	public Order(int orderId, int price, String orderName) {
+		super();
+		this.orderId = orderId;
+		this.orderName = orderName;
+		this.price = price;
+	}
 	public int getOrderId() {
 		return orderId;
 	}
