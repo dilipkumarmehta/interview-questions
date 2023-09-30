@@ -8,19 +8,19 @@ public class PrintEventOdd {
 
 		Object lock = new Object();
 
-		Even even = new Even(num, lock);
-		Odd odd = new Odd(num, lock);
+		Even1 even = new Even1(num, lock);
+		Odd1 odd = new Odd1(num, lock);
 		odd.start();
 		even.start();
 
 	}
 }
 
-class Even extends Thread {
+class Even1 extends Thread {
 	AtomicLong num;
 	Object lock;
 
-	Even(AtomicLong Atnum, Object obj) {
+	Even1(AtomicLong Atnum, Object obj) {
 		this.lock = obj;
 		this.num = Atnum;
 	}
@@ -56,11 +56,11 @@ class Even extends Thread {
 	}
 }
 
-class Odd extends Thread {
+class Odd1 extends Thread {
 	AtomicLong num;
 	Object lock;
 
-	Odd(AtomicLong Atnum, Object obj) {
+	Odd1(AtomicLong Atnum, Object obj) {
 		this.lock = obj;
 		this.num = Atnum;
 	}
