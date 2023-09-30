@@ -13,7 +13,6 @@ public class DeadLocak {
 }
 
 class A {
-
 	public synchronized void d1(B b)  {
 		System.out.println("A D1");
 		
@@ -23,6 +22,7 @@ class A {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("wating for b lock");
 		b.last();
 		System.out.println("A D1 after last");
 
@@ -43,6 +43,7 @@ class B {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		 System.out.println("wating for a lock");
 		a.last();
 		System.out.println("B D1 after last");
 
