@@ -17,5 +17,6 @@ public class GenericsTypeOld<T> {
 			type.set("Pankaj"); 
 			String str =type.get(); //type casting, error prone and can cause ClassCastException
 			System.out.println("done");
+			System.out.println(10/0);
 		}
 }
