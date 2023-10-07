@@ -20,7 +20,7 @@ class Employee implements Comparable<Employee> {
 
 	public int compareTo(Employee arg0) {
 
-		return this.id - arg0.id;
+		return (this.id - arg0.id);
 	}
 
 	public int getId() {
@@ -65,7 +65,7 @@ public class ComparableComparator {
 		Employee em3 = new Employee(2, "BDilip", 22, 400);
 		Employee em4 = new Employee(5, "Pilip", 21, 2200);
 		Employee em5 = new Employee(6, "CAAA", 22, 100);
-		Employee em6 = new Employee(2, "AAA", 2, 200);
+		Employee em6 = new Employee(3, "AAA", 2, 200);
 		List<Employee> empList = new ArrayList<Employee>();
 		empList.add(em);
 		empList.add(em1);
@@ -76,7 +76,7 @@ public class ComparableComparator {
 		empList.add(em6);
 		// sort based on id comparable interface
 		Collections.sort(empList);
-		System.out.println(empList);
+		//System.out.println(empList);
 		// sort based on id Comparator interface
 		Collections.sort(empList, new MyComparator());
 		for (Employee employee : empList) {

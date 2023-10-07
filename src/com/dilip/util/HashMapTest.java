@@ -10,20 +10,23 @@ class Dog {
 	}
 
 	public String toString() {
+		System.out.println("toString()");
 		return color + " dog";
 	}
 
 	@Override
 	public int hashCode() {
-		System.out.println("hsdcode");
+		//System.out.println("hsdcode");
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		System.out.println("hsdcode"+result);
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		System.out.println("equals()");
 		if (this == obj)
 			return true;
 		if (obj == null)
