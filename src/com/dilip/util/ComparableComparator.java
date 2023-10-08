@@ -19,8 +19,9 @@ class Employee implements Comparable<Employee> {
 	}
 
 	public int compareTo(Employee arg0) {
-
-		return (this.id - arg0.id);
+		System.out.println(arg0.compareTo(arg0));
+		//return (this.id - arg0.id);
+		return 0;
 	}
 
 	public int getId() {
@@ -59,10 +60,10 @@ class Employee implements Comparable<Employee> {
 
 public class ComparableComparator {
 	public static void main(String[] args) {
-		Employee em = new Employee(4, "Dilip", 22, 2200);
-		Employee em1 = new Employee(2, "ADilip", 20, 3000);
+		Employee em = new Employee(4, "aaa", 22, 2200);
+		Employee em1 = new Employee(2, "aaa", 20, 3000);
 		Employee em2 = new Employee(4, "Dilip", 22, 2200);
-		Employee em3 = new Employee(2, "BDilip", 22, 400);
+		Employee em3 = new Employee(2, "aa", 22, 400);
 		Employee em4 = new Employee(5, "Pilip", 21, 2200);
 		Employee em5 = new Employee(6, "CAAA", 22, 100);
 		Employee em6 = new Employee(3, "AAA", 2, 200);
@@ -74,11 +75,12 @@ public class ComparableComparator {
 		empList.add(em4);
 		empList.add(em5);
 		empList.add(em6);
+		System.out.println("dfs");
 		// sort based on id comparable interface
-		Collections.sort(empList);
+		//Collections.sort(empList);
 		//System.out.println(empList);
 		// sort based on id Comparator interface
-		Collections.sort(empList, new MyComparator());
+		Collections.sort(empList, new MyComparator().reversed());
 		for (Employee employee : empList) {
 			System.out.println(employee.getId() + "\t" + employee.getSname() + "\t" + employee.getAge() + "\t"
 					+ employee.getSalary());
