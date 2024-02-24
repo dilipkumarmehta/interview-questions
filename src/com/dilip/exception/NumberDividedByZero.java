@@ -1,7 +1,7 @@
 package com.dilip.exception;
 
 /**
- * @author Sudhir
+
  *
  */
 public class NumberDividedByZero extends Exception {
