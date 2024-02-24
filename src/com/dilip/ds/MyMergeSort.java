@@ -52,7 +52,7 @@ public class MyMergeSort {
 	}
 
 	public static void main(String args[]) {
-		int arr[] = { 90, 23, 101, 45, 65, 23, 67, 89, 34, 23 };
+		int arr[] = { 90, 23, 101, 45, 65, 5, 67, 89, 34, 0 };
 		MyMergeSort ob = new MyMergeSort();
 		ob.sort(arr, 0, arr.length - 1);
 

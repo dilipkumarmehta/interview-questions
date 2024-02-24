@@ -1,6 +1,6 @@
 package com.dilip.ds;
 // A simple Java program to introduce a linked list 
-public class LinkedList { 
+public class LinkedList1 { 
 	Node head; // head of list 
 
 	/* Linked list Node. This inner class is made static so that 
@@ -19,7 +19,7 @@ public class LinkedList {
 	public static void main(String[] args) 
 	{ 
 		/* Start with the empty list. */
-		LinkedList llist = new LinkedList(); 
+		LinkedList1 llist = new LinkedList1(); 
 
 		llist.head = new Node(1); 
 		Node second = new Node(2); 

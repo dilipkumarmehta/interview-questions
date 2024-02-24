@@ -1,7 +1,10 @@
 package com.dilip.java8;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ColectionAndStream {
 	public static void main(String[] args) {
@@ -12,5 +15,13 @@ public class ColectionAndStream {
 	    .map(String::toUpperCase)
 	    .sorted()
 	    .forEach(System.out::println);
+		 
+		 Map<String,Collection<String>> map=new HashMap<String,Collection<String>>();
+		 
+		 for (var entry : map.entrySet()) {
+			    System.out.println(entry.getKey() + "/" + entry.getValue());
+			}
+		 
+		 
 	}
 }
