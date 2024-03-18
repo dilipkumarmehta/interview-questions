@@ -16,5 +16,6 @@ public class ElementCountInArray {
 		for (Map.Entry<Integer, Long> map : count.entrySet()) {
 			System.out.println(map);
 		}
+		
 	}
 }

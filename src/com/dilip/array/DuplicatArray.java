@@ -6,6 +6,8 @@ public class DuplicatArray {
 		// new test().set();
 
 		int arr[] = { 1, 1, 33, 2, 3, 4, 4, 5, 50, 50, 100 };
+		
+		
 		int index[] = new int[255];
 		for (int i = 0; i < arr.length; i++) {
 			int a = arr[i];

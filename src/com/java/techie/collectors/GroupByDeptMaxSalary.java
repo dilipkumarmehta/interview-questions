@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.TreeMap;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
@@ -17,11 +18,11 @@ public class GroupByDeptMaxSalary {
 	public static void main(String[] args) {
 
 		List<Employee> empList = new ArrayList<Employee>();
-		Employee emp = new Employee(1, "dilip", 20, 2200, "IT");
-		Employee emp1 = new Employee(2, "dilip1", 20, 233, "Support");
-		Employee emp2 = new Employee(3, "dilip2", 33, 9000, "DevOps");
-		Employee emp4 = new Employee(3, "dilip2", 33, 5000, "DevOps");
-		Employee emp3 = new Employee(4, "dilip3", 20, 2555, "Lead");
+		Employee emp = new Employee(1, "dilip", 240, 2200, "IT");
+		Employee emp1 = new Employee(2, "dilip1", 420, 233, "Support");
+		Employee emp2 = new Employee(3, "dilip2", 343, 9000, "DevOps");
+		Employee emp4 = new Employee(3, "dilip2", 333, 5000, "DevOps");
+		Employee emp3 = new Employee(4, "dilip3", 2410, 2555, "Lead");
 
 		empList.add(emp);
 		empList.add(emp1);
@@ -30,15 +31,36 @@ public class GroupByDeptMaxSalary {
 		empList.add(emp4);
 		System.out.println("highest Salary By department solution1");
 
-		collect = empList.stream().collect(Collectors.groupingBy(e -> e.getDept(),
-				Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))));
+		
+		Map<String, Optional<Employee>> collect4 = empList.stream().collect(Collectors.groupingBy(e->e.getDept(), Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getName)))));
+		collect4.forEach((k,v)->System.out.println(k+"\t value: "+v.get().getEmaiID()));
+		
+		 Map<Integer, List<Employee>> groupedByAge = empList.stream()
+	                .collect(Collectors.groupingBy(Employee::getAge));
+
+	        // Sort age groups in descending order
+	        TreeMap<Integer, List<Employee>> sortedByAgeDesc = new TreeMap<>(Collections.reverseOrder());
+	        sortedByAgeDesc.putAll(groupedByAge);
+	        
+	        // Sort each group by name
+	        sortedByAgeDesc.forEach((age, persons) -> {
+	            persons.sort(Comparator.comparing(Employee::getName));
+	           // System.out.println("Age: " + age);
+	           // persons.forEach(person -> System.out.println("Name  "+person.getName()+"  Age:"+person.getAge()));
+	        });
+	        
+	        
+	        
+		
+		Comparator<Employee> reversed = Comparator.comparing(Employee::getAge).reversed();
+		
 
 		// System.out.println("Higest Salary By department solution2");
 		Optional<Employee> collect2 = empList.stream()
 				.collect(Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary))));
 		// System.out.println(collect2.get());
 
-		System.out.println("Higest Salary By department solution3");
+		//System.out.println("Higest Salary By department solution3");
 		Map<Employee, List<Employee>> map = empList.stream().collect(Collectors.groupingBy(Employee::getDept))
 				.entrySet().stream()
 				.collect(Collectors.toMap(
@@ -46,11 +68,11 @@ public class GroupByDeptMaxSalary {
 						Entry::getValue));
 
 		map.forEach((k, v) -> {
-			System.out.println(k);
+		//System.out.println(k);
 			for (Employee e : v) {
-				System.out.printf("    %s%n", e);
+				//System.out.printf("    %s%n", e);
 			}
-			System.out.println();
+			//System.out.println();
 		});
 
 		Map<Integer, String> m = new HashMap<Integer, String>();

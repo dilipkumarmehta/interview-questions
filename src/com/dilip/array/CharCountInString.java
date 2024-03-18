@@ -12,6 +12,7 @@ public class CharCountInString {
 		String strarr[] = string.split("");
 		Map<String, Long> collect = Arrays.stream(strarr)
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		
 		collect.forEach((k, v) -> System.out.println("key-" + k + "\t value " + v));
 
 	}

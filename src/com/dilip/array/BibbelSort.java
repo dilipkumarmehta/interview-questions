@@ -9,10 +9,9 @@ public class BibbelSort {
 		String string = "dilip kumar mehta abb bcc dd pp kk";
 		String str[] = string.split(" ");
 		int n = str.length;
-
 		String temp = "";
 		for (int i = 0; i < n; i++) {
-			for (int j = 1; j < (n - i); j++) {
+			for (int j = 0; j < (n - i-1); j++) {
 				// if(arr[j-1] > arr[j]){
 				if (str[j + 1].compareTo(str[j]) > 0) {
 					// swap elements

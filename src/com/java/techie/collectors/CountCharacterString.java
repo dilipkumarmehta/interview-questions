@@ -12,13 +12,16 @@ public class CountCharacterString {
 	public static void main(String[] args) {
 		String s = "fafgasfeddafdsfas";
 		String[] split = s.split("");
-		System.out.println(Arrays.toString(split));
+		System.out.println("Split:"+Arrays.toString(split));
+		
 		Stream<String> stream = Arrays.stream(split);
 		Map<String, List<String>> collect = stream.collect(Collectors.groupingBy(p -> p));
-		System.out.println(collect);
+		System.out.println("group Element: "+collect);
+		
+		collect.forEach((k,v)->System.out.println("key :"+k +"Value :"+v.size()));
 		Stream<String> stream1 = Arrays.stream(split);
 		Map<String, Long> collect2 = stream1.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		System.out.println(collect2);
+		System.out.println("group count: "+collect2);
 
 		Map<String, Long> collect3 = Arrays.stream(s.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));

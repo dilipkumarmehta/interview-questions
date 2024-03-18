@@ -1,4 +1,7 @@
 package com.dilip.array;
+
+import java.util.Arrays;
+
 //Write a program to find intersection of two sorted arrays in Java
 public class Arrayinter {
 	public static void main(String[] args) {
@@ -17,9 +20,22 @@ public class Arrayinter {
 
 		}
 		for (int i = 0; i < inter.length; i++) {
-			if(inter[i]>0)
-			System.out.println(inter[i]);
+			if (inter[i] > 0)
+				System.out.println(inter[i]);
 
 		}
+		System.out.println("###################");
+		int[] array = { 10, 20, 30, 40, 50 };
+
+		// Element to search
+		int target = 30;
+
+		// Get index of the target element using a lambda expression
+		int index = Arrays.stream(array).boxed() // Convert int to Integer
+				.mapToInt(Integer::intValue) // Convert Integer to int
+				.boxed() // Convert int to Integer again
+				.filter(value -> value == target) // Filter elements equal to target
+				.findFirst() // Get the first occurrence
+				.orElse(-1); // Default value if not found
 	}
 }

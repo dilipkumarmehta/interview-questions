@@ -8,6 +8,7 @@ public class RemoveDuplicate {
 	}
 }
 
+
 class Tesduplic {
 	public static void removeDUpl(int arr[]) {
 		int l = arr.length;
